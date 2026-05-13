@@ -18,96 +18,95 @@
     --border-strong: rgba(0,0,0,0.28);
     --radius-md: 8px;
     --radius-lg: 12px;
-    --radius-xl: 16px;
     --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --green: #27500A; --green-bg: #EAF3DE;
+    --red: #791F1F;   --red-bg: #FCEBEB;
+    --blue: #0C447C;  --blue-bg: #E6F1FB;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg-primary: #1c1c1a;
-      --bg-secondary: #252523;
-      --bg-tertiary: #2e2e2b;
-      --text-primary: #f0ede8;
-      --text-secondary: #9b9b96;
-      --text-tertiary: #6b6b67;
-      --border-light: rgba(255,255,255,0.08);
-      --border-mid: rgba(255,255,255,0.14);
-      --border-strong: rgba(255,255,255,0.22);
+      --bg-primary: #1c1c1a; --bg-secondary: #252523; --bg-tertiary: #2e2e2b;
+      --text-primary: #f0ede8; --text-secondary: #9b9b96; --text-tertiary: #6b6b67;
+      --border-light: rgba(255,255,255,0.08); --border-mid: rgba(255,255,255,0.14); --border-strong: rgba(255,255,255,0.22);
     }
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: var(--font); background: var(--bg-tertiary); color: var(--text-primary); min-height: 100vh; }
-  .app { max-width: 520px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
-  .card { background: var(--bg-primary); border: 0.5px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.25rem; }
-  .card + .card { margin-top: 12px; }
-  .section-title { font-size: 11px; font-weight: 500; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .75rem; }
-  .avatar { display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 13px; font-weight: 500; flex-shrink: 0; width: 36px; height: 36px; }
-  .avatar-lg { width: 48px; height: 48px; font-size: 16px; }
-  .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 1.25rem; }
-  @media(min-width:400px){ .stat-grid { grid-template-columns: repeat(4,1fr); } }
-  .stat-card { background: var(--bg-secondary); border-radius: var(--radius-md); padding: .875rem 1rem; }
-  .stat-label { font-size: 11px; color: var(--text-secondary); margin-bottom: 4px; }
-  .stat-val { font-size: 22px; font-weight: 500; color: var(--text-primary); }
-  .nav { display: flex; gap: 3px; margin-bottom: 1.25rem; background: var(--bg-secondary); border-radius: var(--radius-md); padding: 3px; }
-  .nav-btn { flex: 1; padding: 7px 4px; font-size: 12px; border: none; background: none; border-radius: 6px; cursor: pointer; color: var(--text-secondary); transition: all .15s; font-family: var(--font); }
-  .nav-btn.active { background: var(--bg-primary); color: var(--text-primary); font-weight: 500; border: 0.5px solid var(--border-light); }
-  .btn { display: inline-flex; align-items: center; gap: 5px; padding: 8px 16px; border-radius: var(--radius-md); font-size: 13px; cursor: pointer; border: 0.5px solid var(--border-mid); background: none; color: var(--text-secondary); font-family: var(--font); transition: all .15s; }
-  .btn:hover { background: var(--bg-secondary); }
-  .btn-primary { background: var(--text-primary); color: var(--bg-primary); border-color: var(--text-primary); }
-  .btn-primary:hover { opacity: .85; background: var(--text-primary); }
-  .btn-sm { padding: 5px 12px; font-size: 12px; }
-  .btn-danger { color: #A32D2D; border-color: #A32D2D; }
-  .btn-danger:hover { background: #FCEBEB; }
-  label { display: block; font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; }
-  input[type=text], input[type=date], input[type=number], select {
-    width: 100%; padding: 8px 10px; border: 0.5px solid var(--border-mid); border-radius: var(--radius-md);
-    background: var(--bg-primary); color: var(--text-primary); font-size: 14px; font-family: var(--font);
-    outline: none; transition: border-color .15s;
-  }
-  input:focus, select:focus { border-color: var(--border-strong); }
-  input[type=checkbox] { width: auto; margin-right: 6px; }
-  .form-group { margin-bottom: 14px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .score-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-  .score-row input { width: 60px; text-align: center; }
-  .score-label { font-size: 13px; color: var(--text-secondary); width: 44px; flex-shrink: 0; }
-  .score-name { font-size: 13px; font-weight: 500; color: var(--text-primary); min-width: 50px; max-width: 90px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .score-sep { color: var(--text-secondary); font-size: 16px; }
-  .badge { display: inline-flex; align-items: center; padding: 2px 9px; border-radius: 999px; font-size: 11px; font-weight: 500; }
-  .badge-win { background: #EAF3DE; color: #27500A; }
-  .badge-loss { background: #FCEBEB; color: #791F1F; }
-  .badge-me { background: #E6F1FB; color: #0C447C; }
-  .player-row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 0.5px solid var(--border-light); }
-  .player-row:last-child { border-bottom: none; }
-  .session-card { background: var(--bg-primary); border: 0.5px solid var(--border-light); border-radius: var(--radius-lg); padding: 1rem 1.25rem; margin-bottom: 8px; display: flex; align-items: center; gap: 12px; transition: border-color .15s; }
-  .session-card:hover { border-color: var(--border-mid); }
-  .del-btn { background: none; border: none; cursor: pointer; color: var(--text-tertiary); padding: 4px; border-radius: var(--radius-md); font-size: 16px; opacity: 0; transition: opacity .15s, color .15s; }
-  .session-card:hover .del-btn, .player-row:hover .del-btn { opacity: 1; }
-  .del-btn:hover { color: #A32D2D; }
-  .lb-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 0.5px solid var(--border-light); }
-  .lb-row:last-child { border-bottom: none; }
-  .lb-rank { font-size: 13px; font-weight: 500; color: var(--text-secondary); width: 24px; text-align: center; flex-shrink: 0; }
-  .color-pick { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
-  .color-dot { width: 26px; height: 26px; border-radius: 50%; cursor: pointer; border: 2.5px solid transparent; transition: border-color .15s; }
-  .partner-chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px; font-size: 12px; border: 0.5px solid var(--border-mid); background: var(--bg-secondary); color: var(--text-secondary); cursor: pointer; margin: 3px; transition: all .12s; }
-  .partner-chip.selected { background: var(--text-primary); color: var(--bg-primary); border-color: var(--text-primary); }
-  .empty-state { text-align: center; padding: 3rem 1rem; color: var(--text-secondary); font-size: 14px; }
-  .empty-state i { font-size: 36px; display: block; margin-bottom: 12px; opacity: .35; }
-  .onboard { max-width: 360px; margin: 3rem auto; }
-  .team-box { flex: 1; text-align: center; padding: 10px; background: var(--bg-secondary); border-radius: var(--radius-md); font-size: 13px; font-weight: 500; color: var(--text-primary); }
-  .improvement-bar { height: 6px; background: var(--bg-secondary); border-radius: 999px; overflow: hidden; margin-top: 4px; }
-  .improvement-fill { height: 100%; background: #3B6D11; border-radius: 999px; transition: width .4s; }
-  .header-row { display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
-  .page-title { font-size: 16px; font-weight: 500; color: var(--text-primary); }
-  .meta-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 3px; }
-  .meta-row span { font-size: 12px; color: var(--text-secondary); }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font);background:var(--bg-tertiary);color:var(--text-primary);min-height:100vh}
+  .app{max-width:520px;margin:0 auto;padding:1.5rem 1rem 4rem}
+  .card{background:var(--bg-primary);border:0.5px solid var(--border-light);border-radius:var(--radius-lg);padding:1.25rem}
+  .section-title{font-size:11px;font-weight:500;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.75rem}
+  .avatar{display:inline-flex;align-items:center;justify-content:center;border-radius:50%;font-size:13px;font-weight:500;flex-shrink:0;width:36px;height:36px}
+  .avatar-lg{width:48px;height:48px;font-size:16px}
+  .stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:1.25rem}
+  @media(min-width:400px){.stat-grid{grid-template-columns:repeat(4,1fr)}}
+  .stat-card{background:var(--bg-secondary);border-radius:var(--radius-md);padding:.875rem 1rem}
+  .stat-label{font-size:11px;color:var(--text-secondary);margin-bottom:4px}
+  .stat-val{font-size:22px;font-weight:500;color:var(--text-primary)}
+  .nav{display:flex;gap:3px;margin-bottom:1.25rem;background:var(--bg-secondary);border-radius:var(--radius-md);padding:3px}
+  .nav-btn{flex:1;padding:7px 4px;font-size:12px;border:none;background:none;border-radius:6px;cursor:pointer;color:var(--text-secondary);transition:all .15s;font-family:var(--font)}
+  .nav-btn.active{background:var(--bg-primary);color:var(--text-primary);font-weight:500;border:0.5px solid var(--border-light)}
+  .btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:var(--radius-md);font-size:13px;cursor:pointer;border:0.5px solid var(--border-mid);background:none;color:var(--text-secondary);font-family:var(--font);transition:all .15s}
+  .btn:hover{background:var(--bg-secondary)}
+  .btn-primary{background:var(--text-primary);color:var(--bg-primary);border-color:var(--text-primary)}
+  .btn-primary:hover{opacity:.85;background:var(--text-primary)}
+  .btn-green{background:var(--green-bg);color:var(--green);border-color:var(--green);font-weight:500}
+  .btn-green:hover{opacity:.85}
+  .btn-sm{padding:5px 12px;font-size:12px}
+  label{display:block;font-size:12px;color:var(--text-secondary);margin-bottom:4px}
+  input[type=text],input[type=date],input[type=number],select{width:100%;padding:8px 10px;border:0.5px solid var(--border-mid);border-radius:var(--radius-md);background:var(--bg-primary);color:var(--text-primary);font-size:14px;font-family:var(--font);outline:none;transition:border-color .15s}
+  input:focus,select:focus{border-color:var(--border-strong)}
+  input[type=checkbox]{width:auto;margin-right:6px}
+  .form-group{margin-bottom:14px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .score-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+  .score-row input{width:60px;text-align:center}
+  .score-label{font-size:13px;color:var(--text-secondary);width:44px;flex-shrink:0}
+  .score-name{font-size:13px;font-weight:500;color:var(--text-primary);min-width:50px;max-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .score-sep{color:var(--text-secondary);font-size:16px}
+  .badge{display:inline-flex;align-items:center;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:500}
+  .badge-win{background:var(--green-bg);color:var(--green)}
+  .badge-loss{background:var(--red-bg);color:var(--red)}
+  .badge-me{background:var(--blue-bg);color:var(--blue)}
+  .player-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:0.5px solid var(--border-light)}
+  .player-row:last-child{border-bottom:none}
+  .session-card{background:var(--bg-primary);border:0.5px solid var(--border-light);border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:8px;display:flex;align-items:center;gap:12px;transition:border-color .15s}
+  .session-card:hover{border-color:var(--border-mid)}
+  .del-btn{background:none;border:none;cursor:pointer;color:var(--text-tertiary);padding:4px;border-radius:var(--radius-md);font-size:16px;opacity:0;transition:opacity .15s,color .15s}
+  .session-card:hover .del-btn,.player-row:hover .del-btn{opacity:1}
+  .del-btn:hover{color:#A32D2D}
+  .lb-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:0.5px solid var(--border-light)}
+  .lb-row:last-child{border-bottom:none}
+  .lb-rank{font-size:13px;font-weight:500;color:var(--text-secondary);width:24px;text-align:center;flex-shrink:0}
+  .color-pick{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+  .color-dot{width:26px;height:26px;border-radius:50%;cursor:pointer;border:2.5px solid transparent;transition:border-color .15s}
+  .partner-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;font-size:12px;border:0.5px solid var(--border-mid);background:var(--bg-secondary);color:var(--text-secondary);cursor:pointer;margin:3px;transition:all .12s}
+  .partner-chip.selected{background:var(--text-primary);color:var(--bg-primary);border-color:var(--text-primary)}
+  .empty-state{text-align:center;padding:3rem 1rem;color:var(--text-secondary);font-size:14px}
+  .empty-state i{font-size:36px;display:block;margin-bottom:12px;opacity:.35}
+  .onboard{max-width:360px;margin:3rem auto}
+  .team-box{flex:1;text-align:center;padding:10px;background:var(--bg-secondary);border-radius:var(--radius-md);font-size:13px;font-weight:500;color:var(--text-primary)}
+  .improvement-bar{height:6px;background:var(--bg-secondary);border-radius:999px;overflow:hidden;margin-top:4px}
+  .improvement-fill{height:100%;background:#3B6D11;border-radius:999px}
+  .header-row{display:flex;align-items:center;gap:10px;margin-bottom:1.5rem}
+  .page-title{font-size:16px;font-weight:500;color:var(--text-primary)}
+  .meta-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:3px}
+  .meta-row span{font-size:12px;color:var(--text-secondary)}
+  .sync-bar{display:flex;align-items:center;justify-content:space-between;background:var(--bg-primary);border:0.5px solid var(--border-light);border-radius:var(--radius-lg);padding:.875rem 1.25rem;margin-bottom:1.25rem}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);padding:10px 20px;border-radius:var(--radius-md);font-size:13px;font-weight:500;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none;white-space:nowrap}
+  .toast.show{opacity:1}
+  .toast-success{background:var(--green-bg);color:var(--green);border:0.5px solid var(--green)}
+  .toast-error{background:var(--red-bg);color:var(--red);border:0.5px solid var(--red)}
+  /* equal height mode cards */
+  .mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.5rem;align-items:stretch}
+  .mode-card{background:var(--bg-primary);border:0.5px solid var(--border-light);border-radius:var(--radius-lg);padding:1.25rem;text-align:center;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:140px;transition:border-color .15s}
+  .mode-card:hover{border-color:var(--border-mid)}
 </style>
 </head>
 <body>
-<div class="app" id="app">
-  <div class="empty-state"><i class="ti ti-loader"></i>Loading…</div>
-</div>
-
+<div class="app" id="app"><div class="empty-state"><i class="ti ti-loader"></i>Loading…</div></div>
+<div class="toast" id="toast"></div>
 <script>
+const SHEETS_URL='https://script.google.com/macros/s/AKfycbw109S7ZQmgjDWHc4YPdLdRNrvmEdOWxVbOWV_qjochdpuc4H12BQrTzy18GM5q6m3p/exec';
 const COLORS=[
   {bg:'#E6F1FB',fg:'#0C447C',name:'blue'},
   {bg:'#EAF3DE',fg:'#27500A',name:'green'},
@@ -118,26 +117,17 @@ const COLORS=[
   {bg:'#E1F5EE',fg:'#085041',name:'teal'},
   {bg:'#F1EFE8',fg:'#444441',name:'gray'}
 ];
-
-const SK={PROFILE:'tennis-profile-v2',PLAYERS:'tennis-players-v2',SESSIONS:'tennis-sessions-v2'};
-
-let S={
-  profile:null,players:[],sessions:[],
-  tab:'log',view:'home',
-  logData:{},_tmp:{}
-};
-
+const SK={PROFILE:'tennis-profile-v2',PLAYERS:'tennis-players-v2',SESSIONS:'tennis-sessions-v2',SYNC:'tennis-last-sync'};
+let S={profile:null,players:[],sessions:[],tab:'log',view:'home',logData:{},_tmp:{}};
 function load(){
   try{let v=localStorage.getItem(SK.PROFILE);if(v)S.profile=JSON.parse(v);}catch(e){}
   try{let v=localStorage.getItem(SK.PLAYERS);if(v)S.players=JSON.parse(v);}catch(e){}
   try{let v=localStorage.getItem(SK.SESSIONS);if(v)S.sessions=JSON.parse(v);}catch(e){}
   render();
 }
-
 function saveProfile(){localStorage.setItem(SK.PROFILE,JSON.stringify(S.profile));}
 function savePlayers(){localStorage.setItem(SK.PLAYERS,JSON.stringify(S.players));}
 function saveSessions(){localStorage.setItem(SK.SESSIONS,JSON.stringify(S.sessions));}
-
 function initials(n){return n.trim().split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);}
 function avatarHtml(name,color,lg){
   const c=COLORS.find(x=>x.name===color)||COLORS[0];
@@ -145,46 +135,50 @@ function avatarHtml(name,color,lg){
 }
 function playerName(id){if(id==='__me__')return S.profile?S.profile.name:'Me';const p=S.players.find(x=>x.id===id);return p?p.name:id;}
 function playerColor(id){if(id==='__me__')return S.profile?S.profile.color:'blue';const p=S.players.find(x=>x.id===id);return p?p.color:'gray';}
-
-function myStats(){
-  let sets=0,setsWon=0,gamesWon=0,gamesLost=0;
-  S.sessions.forEach(s=>{
-    if(s.type==='singles'){
-      s.sets.forEach(set=>{
-        sets++;
-        const m=parseInt(set.myGames)||0,o=parseInt(set.oppGames)||0;
-        gamesWon+=m;gamesLost+=o;
-        if(m>o)setsWon++;
-      });
-    } else {
-      s.games.forEach(g=>{
-        const m1=g.team1.includes('__me__'),m2=g.team2.includes('__me__');
-        sets++;
-        if((m1&&g.winner===1)||(m2&&g.winner===2))setsWon++;
-      });
-    }
-  });
-  return{sets,setsWon,gamesWon,gamesLost};
+function showToast(msg,type='success'){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.className=`toast toast-${type} show`;
+  setTimeout(()=>{t.className='toast';},3200);
 }
-
+function lastSyncText(){
+  const v=localStorage.getItem(SK.SYNC);
+  if(!v)return'Never synced';
+  const d=new Date(parseInt(v));
+  return'Last synced '+d.toLocaleDateString('en-GB',{day:'numeric',month:'short'})+' at '+d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+}
+async function syncToSheets(){
+  if(!S.sessions.length){showToast('No sessions to sync yet','error');return;}
+  const btn=document.getElementById('sync-btn');
+  if(btn){btn.disabled=true;btn.innerHTML='<i class="ti ti-loader-2"></i> Syncing…';}
+  const singles=S.sessions.filter(s=>s.type==='singles').map(s=>({...s,opponentName:playerName(s.player2)}));
+  const doubles=S.sessions.filter(s=>s.type==='doubles').map(s=>({...s,games:s.games.map(g=>({...g,team1Names:g.team1.map(id=>playerName(id)),team2Names:g.team2.map(id=>playerName(id))}))}));
+  try{
+    if(singles.length)await fetch(SHEETS_URL,{method:'POST',body:JSON.stringify({type:'singles',sessions:singles})});
+    if(doubles.length)await fetch(SHEETS_URL,{method:'POST',body:JSON.stringify({type:'doubles',sessions:doubles})});
+    localStorage.setItem(SK.SYNC,Date.now().toString());
+    showToast('✓ Synced to Google Sheets!');render();
+  }catch(err){showToast('Sync failed — check connection','error');}
+  finally{if(btn){btn.disabled=false;btn.innerHTML='<i class="ti ti-brand-google"></i> Sync';}}
+}
+function myStats(){
+  let sets=0,setsWon=0,gamesWon=0;
+  S.sessions.forEach(s=>{
+    if(s.type==='singles'){s.sets.forEach(x=>{sets++;const m=parseInt(x.myGames)||0,o=parseInt(x.oppGames)||0;gamesWon+=m;if(m>o)setsWon++;});}
+    else{s.games.forEach(g=>{sets++;if((g.team1.includes('__me__')&&g.winner===1)||(g.team2.includes('__me__')&&g.winner===2))setsWon++;});}
+  });
+  return{sets,setsWon,gamesWon};
+}
 function playerStats(pid){
-  let gw=0,gl=0,sw=0,sl=0;
+  let gw=0,sw=0,sets=0;
   S.sessions.forEach(s=>{
     if(s.type!=='singles')return;
     const is1=s.player1===pid,is2=s.player2===pid;
     if(!is1&&!is2)return;
-    s.sets.forEach(set=>{
-      const m=parseInt(set.myGames)||0,o=parseInt(set.oppGames)||0;
-      const myG=is1?m:o,oppG=is1?o:m;
-      gw+=myG;gl+=oppG;
-      if(myG>oppG)sw++;else sl++;
-    });
+    s.sets.forEach(x=>{const m=parseInt(x.myGames)||0,o=parseInt(x.oppGames)||0;const myG=is1?m:o,oppG=is1?o:m;gw+=myG;sets++;if(myG>oppG)sw++;});
   });
-  return{gw,gl,sw,sl,sets:sw+sl};
+  return{gw,sw,sets};
 }
-
 function render(){
-  const app=document.getElementById('app');
   if(!S.profile){renderOnboard();return;}
   if(S.view==='log-singles'){renderLogSingles();return;}
   if(S.view==='log-doubles'){renderLogDoubles();return;}
@@ -192,13 +186,9 @@ function render(){
   if(S.view==='edit-profile'){renderEditProfile();return;}
   renderMain();
 }
-
 function renderOnboard(){
-  const app=document.getElementById('app');
-  const sel=S._tmp.obColor||COLORS[0].name;
-  const name=S._tmp.obName||'';
-  const preview=name?avatarHtml(name,sel,true):avatarHtml('Me',sel,true);
-  app.innerHTML=`
+  const sel=S._tmp.obColor||COLORS[0].name,name=S._tmp.obName||'';
+  document.getElementById('app').innerHTML=`
   <div class="onboard">
     <div style="text-align:center;margin-bottom:2rem">
       <div style="font-size:36px;margin-bottom:.5rem">🎾</div>
@@ -206,43 +196,32 @@ function renderOnboard(){
       <div style="font-size:13px;color:var(--text-secondary);margin-top:6px">Set up your profile to get started</div>
     </div>
     <div class="card">
-      <div class="form-group">
-        <label>Your name</label>
+      <div class="form-group"><label>Your name</label>
         <input type="text" id="ob-name" placeholder="e.g. Alex" value="${name}" oninput="S._tmp.obName=this.value;renderOnboard()">
       </div>
-      <div class="form-group">
-        <label>Pick your colour</label>
+      <div class="form-group"><label>Pick your colour</label>
         <div class="color-pick">${COLORS.map(c=>`<div class="color-dot" style="background:${c.bg};border-color:${sel===c.name?c.fg:'transparent'}" onclick="S._tmp.obColor='${c.name}';renderOnboard()"></div>`).join('')}</div>
       </div>
-      <div style="display:flex;justify-content:center;margin:1rem 0 .5rem">${preview}</div>
+      <div style="display:flex;justify-content:center;margin:1rem 0 .5rem">${avatarHtml(name||'Me',sel,true)}</div>
       <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px" onclick="saveOnboard()">Get started</button>
     </div>
-  </div>`;
-}
-
+  </div>`;}
 function saveOnboard(){
   const name=document.getElementById('ob-name').value.trim();
   if(!name){alert('Please enter your name');return;}
   S.profile={name,color:S._tmp.obColor||COLORS[0].name};
   saveProfile();S._tmp={};render();
 }
-
 function renderEditProfile(){
-  const app=document.getElementById('app');
-  const sel=S._tmp.epColor||S.profile.color;
-  const name=S._tmp.epName!==undefined?S._tmp.epName:S.profile.name;
-  app.innerHTML=`
+  const sel=S._tmp.epColor||S.profile.color,name=S._tmp.epName!==undefined?S._tmp.epName:S.profile.name;
+  document.getElementById('app').innerHTML=`
   <div class="header-row">
     <button class="btn btn-sm" onclick="S.view='home';S.tab='players';S._tmp={};render()"><i class="ti ti-arrow-left"></i> Back</button>
     <div class="page-title">Edit profile</div>
   </div>
   <div class="card">
-    <div class="form-group">
-      <label>Your name</label>
-      <input type="text" id="ep-name" value="${name}" oninput="S._tmp.epName=this.value;renderEditProfile()">
-    </div>
-    <div class="form-group">
-      <label>Colour</label>
+    <div class="form-group"><label>Your name</label><input type="text" value="${name}" oninput="S._tmp.epName=this.value;renderEditProfile()"></div>
+    <div class="form-group"><label>Colour</label>
       <div class="color-pick">${COLORS.map(c=>`<div class="color-dot" style="background:${c.bg};border-color:${sel===c.name?c.fg:'transparent'}" onclick="S._tmp.epColor='${c.name}';renderEditProfile()"></div>`).join('')}</div>
     </div>
     <div style="display:flex;justify-content:center;margin:1rem 0">${avatarHtml(name||S.profile.name,sel,true)}</div>
@@ -250,35 +229,28 @@ function renderEditProfile(){
       <button class="btn btn-sm" onclick="S.view='home';S.tab='players';S._tmp={};render()">Cancel</button>
       <button class="btn btn-primary btn-sm" onclick="saveEditProfile()">Save</button>
     </div>
-  </div>`;
-}
-
+  </div>`;}
 function saveEditProfile(){
   const name=(S._tmp.epName!==undefined?S._tmp.epName:S.profile.name).trim();
   if(!name){alert('Name cannot be empty');return;}
-  S.profile.name=name;
-  S.profile.color=S._tmp.epColor||S.profile.color;
+  S.profile={...S.profile,name,color:S._tmp.epColor||S.profile.color};
   saveProfile();S._tmp={};S.view='home';S.tab='players';render();
 }
-
 function renderMain(){
-  const app=document.getElementById('app');
-  const stats=myStats();
-  const winRate=stats.sets?Math.round(stats.setsWon/stats.sets*100):0;
-
+  const stats=myStats(),winRate=stats.sets?Math.round(stats.setsWon/stats.sets*100):0;
   const tabs=[{id:'log',label:'Log'},{id:'history',label:'History'},{id:'leaderboard',label:'Board'},{id:'players',label:'Players'}];
-
   let content='';
   if(S.tab==='log'){
     content=`
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.5rem">
-      <div class="card" style="text-align:center;cursor:pointer" onclick="startLog('singles')">
-        <i class="ti ti-user" style="font-size:26px;color:var(--text-secondary);display:block;margin-bottom:8px"></i>
+
+    <div class="mode-grid">
+      <div class="mode-card" onclick="startLog('singles')">
+        <i class="ti ti-user" style="font-size:26px;color:var(--text-secondary);margin-bottom:10px"></i>
         <div style="font-size:14px;font-weight:500;color:var(--text-primary)">Singles</div>
         <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">Sets vs one opponent</div>
       </div>
-      <div class="card" style="text-align:center;cursor:pointer" onclick="startLog('doubles')">
-        <i class="ti ti-users" style="font-size:26px;color:var(--text-secondary);display:block;margin-bottom:8px"></i>
+      <div class="mode-card" onclick="startLog('doubles')">
+        <i class="ti ti-users" style="font-size:26px;color:var(--text-secondary);margin-bottom:10px"></i>
         <div style="font-size:14px;font-weight:500;color:var(--text-primary)">Mixed doubles</div>
         <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">Rotating partner games</div>
       </div>
@@ -290,135 +262,90 @@ function renderMain(){
       <div class="stat-card"><div class="stat-label">Win rate</div><div class="stat-val">${winRate}%</div></div>
       <div class="stat-card"><div class="stat-label">Games won</div><div class="stat-val">${stats.gamesWon}</div></div>
     </div>`;
-  }
-  else if(S.tab==='history'){
+  } else if(S.tab==='history'){
     const sorted=[...S.sessions].sort((a,b)=>b.date.localeCompare(a.date));
-    if(!sorted.length){
-      content=`<div class="empty-state"><i class="ti ti-history"></i>No sessions yet — log your first match!</div>`;
-    } else {
-      content=sorted.map(s=>{
-        const d=new Date(s.date+'T12:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
-        if(s.type==='singles'){
-          const myT=s.sets.reduce((a,x)=>a+(parseInt(x.myGames)||0),0);
-          const oppT=s.sets.reduce((a,x)=>a+(parseInt(x.oppGames)||0),0);
-          const won=myT>oppT;
-          const scores=s.sets.map(x=>`${x.myGames}–${x.oppGames}`).join(', ');
-          return `<div class="session-card">
-            ${avatarHtml(playerName(s.player2),playerColor(s.player2))}
-            <div style="flex:1;min-width:0">
-              <div style="font-size:14px;font-weight:500;color:var(--text-primary)">vs ${playerName(s.player2)}</div>
-              <div class="meta-row"><span>${d}</span><span>·</span><span>${scores}</span></div>
-            </div>
-            <span class="badge ${won?'badge-win':'badge-loss'}">${won?'Won':'Lost'}</span>
-            <button class="del-btn" onclick="deleteSession('${s.id}')" aria-label="Delete"><i class="ti ti-trash"></i></button>
-          </div>`;
-        } else {
-          const wins=s.games.filter(g=>(g.team1.includes('__me__')&&g.winner===1)||(g.team2.includes('__me__')&&g.winner===2)).length;
-          return `<div class="session-card">
-            <div class="avatar" style="background:var(--bg-secondary);color:var(--text-secondary)"><i class="ti ti-users" style="font-size:16px"></i></div>
-            <div style="flex:1;min-width:0">
-              <div style="font-size:14px;font-weight:500;color:var(--text-primary)">Mixed doubles</div>
-              <div class="meta-row"><span>${d}</span><span>·</span><span>${s.games.length} game${s.games.length!==1?'s':''}</span><span>·</span><span>${wins} won</span></div>
-            </div>
-            <button class="del-btn" onclick="deleteSession('${s.id}')" aria-label="Delete"><i class="ti ti-trash"></i></button>
-          </div>`;
-        }
-      }).join('');
-    }
-  }
-  else if(S.tab==='leaderboard'){
+    if(!sorted.length){content=`<div class="empty-state"><i class="ti ti-history"></i>No sessions yet — log your first match!</div>`;}
+    else content=sorted.map(s=>{
+      const d=new Date(s.date+'T12:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+      if(s.type==='singles'){
+        const myT=s.sets.reduce((a,x)=>a+(parseInt(x.myGames)||0),0),oppT=s.sets.reduce((a,x)=>a+(parseInt(x.oppGames)||0),0);
+        const won=myT>oppT,scores=s.sets.map(x=>`${x.myGames}–${x.oppGames}`).join(', ');
+        return `<div class="session-card">${avatarHtml(playerName(s.player2),playerColor(s.player2))}
+          <div style="flex:1;min-width:0"><div style="font-size:14px;font-weight:500;color:var(--text-primary)">vs ${playerName(s.player2)}</div>
+          <div class="meta-row"><span>${d}</span><span>·</span><span>${scores}</span></div></div>
+          <span class="badge ${won?'badge-win':'badge-loss'}">${won?'Won':'Lost'}</span>
+          <button class="del-btn" onclick="deleteSession('${s.id}')"><i class="ti ti-trash"></i></button>
+        </div>`;
+      } else {
+        const wins=s.games.filter(g=>(g.team1.includes('__me__')&&g.winner===1)||(g.team2.includes('__me__')&&g.winner===2)).length;
+        return `<div class="session-card">
+          <div class="avatar" style="background:var(--bg-secondary);color:var(--text-secondary)"><i class="ti ti-users" style="font-size:16px"></i></div>
+          <div style="flex:1;min-width:0"><div style="font-size:14px;font-weight:500;color:var(--text-primary)">Mixed doubles</div>
+          <div class="meta-row"><span>${d}</span><span>·</span><span>${s.games.length} games</span><span>·</span><span>${wins} won</span></div></div>
+          <button class="del-btn" onclick="deleteSession('${s.id}')"><i class="ti ti-trash"></i></button>
+        </div>`;
+      }
+    }).join('');
+  } else if(S.tab==='leaderboard'){
     const regulars=S.players.filter(p=>p.regular);
     const all=[{id:'__me__',name:S.profile.name,color:S.profile.color},...regulars];
     const lb=all.map(p=>{const s=playerStats(p.id);return{...p,...s};}).sort((a,b)=>b.gw-a.gw);
     const maxGw=Math.max(1,...lb.map(p=>p.gw));
-    content=`
-    <div class="section-title">Games won — singles</div>
-    <div class="card">
+    content=`<div class="section-title">Games won — singles</div><div class="card">
     ${lb.map((p,i)=>{
-      const isMe=p.id==='__me__';
-      const medal=i===0?'🥇':i===1?'🥈':i===2?'🥉':'';
-      const pct=Math.round(p.gw/maxGw*100);
-      return `<div class="lb-row">
-        <div class="lb-rank">${medal||i+1}</div>
-        ${avatarHtml(p.name,p.color)}
+      const isMe=p.id==='__me__',medal=i===0?'🥇':i===1?'🥈':i===2?'🥉':'';
+      return `<div class="lb-row"><div class="lb-rank">${medal||i+1}</div>${avatarHtml(p.name,p.color)}
         <div style="flex:1;min-width:0">
-          <div style="display:flex;align-items:center;gap:6px">
-            <span style="font-size:14px;font-weight:500;color:var(--text-primary)">${p.name}</span>
-            ${isMe?'<span class="badge badge-me">me</span>':''}
-          </div>
+          <div style="display:flex;align-items:center;gap:6px"><span style="font-size:14px;font-weight:500;color:var(--text-primary)">${p.name}</span>${isMe?'<span class="badge badge-me">me</span>':''}</div>
           <div style="font-size:11px;color:var(--text-secondary);margin-top:2px">${p.sets} sets · ${p.sw} won</div>
-          <div class="improvement-bar" style="margin-top:5px"><div class="improvement-fill" style="width:${pct}%"></div></div>
+          <div class="improvement-bar" style="margin-top:5px"><div class="improvement-fill" style="width:${Math.round(p.gw/maxGw*100)}%"></div></div>
         </div>
-        <div style="text-align:right;flex-shrink:0">
-          <div style="font-size:18px;font-weight:500;color:var(--text-primary)">${p.gw}</div>
-          <div style="font-size:11px;color:var(--text-secondary)">games</div>
-        </div>
+        <div style="text-align:right;flex-shrink:0"><div style="font-size:18px;font-weight:500;color:var(--text-primary)">${p.gw}</div><div style="font-size:11px;color:var(--text-secondary)">games</div></div>
       </div>`;
-    }).join('')}
-    </div>`;
-  }
-  else if(S.tab==='players'){
+    }).join('')}</div>`;
+  } else if(S.tab==='players'){
     content=`
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem">
       <div class="section-title" style="margin:0">Your players</div>
       <button class="btn btn-primary btn-sm" onclick="S.view='add-player';render()"><i class="ti ti-plus"></i> Add player</button>
     </div>
     <div class="card">
-      <div class="player-row">
-        ${avatarHtml(S.profile.name,S.profile.color)}
-        <div style="flex:1">
-          <div style="font-size:14px;font-weight:500;color:var(--text-primary)">${S.profile.name}</div>
-          <span class="badge badge-me">you</span>
-        </div>
+      <div class="player-row">${avatarHtml(S.profile.name,S.profile.color)}
+        <div style="flex:1"><div style="font-size:14px;font-weight:500;color:var(--text-primary)">${S.profile.name}</div><span class="badge badge-me">you</span></div>
         <button class="btn btn-sm" onclick="S.view='edit-profile';S._tmp={};render()"><i class="ti ti-edit"></i></button>
       </div>
       ${S.players.length?S.players.map(p=>`
-      <div class="player-row">
-        ${avatarHtml(p.name,p.color)}
-        <div style="flex:1">
-          <div style="font-size:14px;font-weight:500;color:var(--text-primary)">${p.name}</div>
-          <div style="font-size:12px;color:var(--text-secondary)">${p.regular?'Regular — on leaderboard':'Guest'}</div>
-        </div>
-        <button class="del-btn" style="opacity:1" onclick="deletePlayer('${p.id}')" aria-label="Delete player"><i class="ti ti-trash"></i></button>
+      <div class="player-row">${avatarHtml(p.name,p.color)}
+        <div style="flex:1"><div style="font-size:14px;font-weight:500;color:var(--text-primary)">${p.name}</div>
+        <div style="font-size:12px;color:var(--text-secondary)">${p.regular?'Regular — on leaderboard':'Guest'}</div></div>
+        <button class="del-btn" style="opacity:1" onclick="deletePlayer('${p.id}')"><i class="ti ti-trash"></i></button>
       </div>`).join(''):`<div style="padding:1rem 0;text-align:center;color:var(--text-secondary);font-size:13px">No players added yet</div>`}
-    </div>`;
-  }
-
-  app.innerHTML=`
+    </div>`;}
+  document.getElementById('app').innerHTML=`
   <div class="header-row">
     ${avatarHtml(S.profile.name,S.profile.color,true)}
-    <div>
-      <div style="font-size:16px;font-weight:500;color:var(--text-primary)">${S.profile.name}</div>
-      <div style="font-size:12px;color:var(--text-secondary)">${S.sessions.length} session${S.sessions.length!==1?'s':''} logged</div>
-    </div>
+    <div><div style="font-size:16px;font-weight:500;color:var(--text-primary)">${S.profile.name}</div>
+    <div style="font-size:12px;color:var(--text-secondary)">${S.sessions.length} session${S.sessions.length!==1?'s':''} logged</div></div>
     <span style="margin-left:auto;font-size:24px">🎾</span>
   </div>
   <nav class="nav">${tabs.map(t=>`<button class="nav-btn${S.tab===t.id?' active':''}" onclick="S.tab='${t.id}';render()">${t.label}</button>`).join('')}</nav>
-  ${content}`;
-}
-
+  ${content}`;}
 function startLog(type){
   S.view=type==='singles'?'log-singles':'log-doubles';
-  S.logData={type,date:new Date().toISOString().split('T')[0],sets:[{myGames:'',oppGames:''}],games:[],selOpp:'',selPlayers:[]};
-  render();
-}
-
+  S.logData={type,date:new Date().toISOString().split('T')[0],sets:[{myGames:'',oppGames:''}],games:[],selOpp:'',selPlayers:[]};render();}
 function renderLogSingles(){
-  const app=document.getElementById('app');
-  const d=S.logData;
-  const opts=S.players.map(p=>`<option value="${p.id}"${d.selOpp===p.id?' selected':''}>${p.name}</option>`).join('');
+  const d=S.logData,opts=S.players.map(p=>`<option value="${p.id}"${d.selOpp===p.id?' selected':''}>${p.name}</option>`).join('');
   const oppName=d.selOpp?playerName(d.selOpp):'Opponent';
   const setsHtml=d.sets.map((s,i)=>`
-    <div class="score-row">
-      <span class="score-label">Set ${i+1}</span>
+    <div class="score-row"><span class="score-label">Set ${i+1}</span>
       <span class="score-name">${S.profile.name.split(' ')[0]}</span>
       <input type="number" min="0" max="7" placeholder="0" value="${s.myGames}" oninput="S.logData.sets[${i}].myGames=this.value">
       <span class="score-sep">–</span>
       <input type="number" min="0" max="7" placeholder="0" value="${s.oppGames}" oninput="S.logData.sets[${i}].oppGames=this.value">
       <span class="score-name">${oppName.split(' ')[0]}</span>
-      ${i>0?`<button onclick="S.logData.sets.splice(${i},1);renderLogSingles()" style="background:none;border:none;cursor:pointer;color:var(--text-secondary);font-size:18px;padding:0 4px" aria-label="Remove"><i class="ti ti-x"></i></button>`:''}
+      ${i>0?`<button onclick="S.logData.sets.splice(${i},1);renderLogSingles()" style="background:none;border:none;cursor:pointer;color:var(--text-secondary);font-size:18px;padding:0 4px"><i class="ti ti-x"></i></button>`:''}
     </div>`).join('');
-  app.innerHTML=`
+  document.getElementById('app').innerHTML=`
   <div class="header-row">
     <button class="btn btn-sm" onclick="S.view='home';render()"><i class="ti ti-arrow-left"></i> Back</button>
     <div class="page-title">Log singles</div>
@@ -427,168 +354,98 @@ function renderLogSingles(){
     <div class="form-row" style="margin-bottom:14px">
       <div class="form-group" style="margin:0"><label>Date</label><input type="date" value="${d.date}" oninput="S.logData.date=this.value"></div>
       <div class="form-group" style="margin:0"><label>Opponent</label>
-        <select onchange="S.logData.selOpp=this.value;renderLogSingles()">
-          <option value="">Choose…</option>${opts}
-        </select>
+        <select onchange="S.logData.selOpp=this.value;renderLogSingles()"><option value="">Choose…</option>${opts}</select>
       </div>
     </div>
-    <div class="section-title">Set scores</div>
-    ${setsHtml}
+    <div class="section-title">Set scores</div>${setsHtml}
     <button class="btn btn-sm" style="margin-top:6px" onclick="S.logData.sets.push({myGames:'',oppGames:''});renderLogSingles()"><i class="ti ti-plus"></i> Add set</button>
   </div>
   <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">
     <button class="btn" onclick="S.view='home';render()">Cancel</button>
     <button class="btn btn-primary" onclick="saveSingles()">Save session</button>
-  </div>`;
-}
-
+  </div>`;}
 function saveSingles(){
   const d=S.logData;
   if(!d.selOpp){alert('Please choose an opponent');return;}
   const validSets=d.sets.filter(s=>s.myGames!==''||s.oppGames!=='');
   if(!validSets.length){alert('Enter at least one set score');return;}
   S.sessions.push({id:'s'+Date.now(),type:'singles',date:d.date,player1:'__me__',player2:d.selOpp,sets:validSets.map(s=>({myGames:parseInt(s.myGames)||0,oppGames:parseInt(s.oppGames)||0}))});
-  saveSessions();S.view='home';S.tab='history';render();
-}
-
+  saveSessions();S.view='home';S.tab='history';render();}
 function renderLogDoubles(){
-  const app=document.getElementById('app');
-  const d=S.logData;
-  if(!d.selPlayers)d.selPlayers=[];
-  const chips=S.players.map(p=>{
-    const sel=d.selPlayers.includes(p.id);
-    return `<span class="partner-chip${sel?' selected':''}" onclick="toggleDP('${p.id}')">${avatarHtml(p.name,p.color)} ${p.name}</span>`;
-  }).join('');
-
+  const d=S.logData;if(!d.selPlayers)d.selPlayers=[];
+  const chips=S.players.map(p=>{const sel=d.selPlayers.includes(p.id);return `<span class="partner-chip${sel?' selected':''}" onclick="toggleDP('${p.id}')">${avatarHtml(p.name,p.color)} ${p.name}</span>`;}).join('');
   let nextHtml='';
   if(d.selPlayers.length===3){
-    const gn=(d.games||[]).length;
-    const sp=d.selPlayers;
+    const gn=(d.games||[]).length,sp=d.selPlayers;
     const rots=[[[sp[0],sp[1]],[sp[2],'__me__']],[[sp[0],'__me__'],[sp[1],sp[2]]],[[sp[0],sp[2]],[sp[1],'__me__']]];
-    const rot=rots[gn%3];
-    d._t1=rot[0];d._t2=rot[1];
-    const t1n=d._t1.map(id=>playerName(id)).join(' + ');
-    const t2n=d._t2.map(id=>playerName(id)).join(' + ');
-    nextHtml=`
-    <div style="margin-top:1rem">
-      <div class="section-title">Game ${gn+1} pairing</div>
+    const rot=rots[gn%3];d._t1=rot[0];d._t2=rot[1];
+    const t1n=d._t1.map(id=>playerName(id)).join(' + '),t2n=d._t2.map(id=>playerName(id)).join(' + ');
+    nextHtml=`<div style="margin-top:1rem"><div class="section-title">Game ${gn+1} pairing</div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-        <div class="team-box">${t1n}</div>
-        <span style="color:var(--text-secondary);font-size:13px;flex-shrink:0">vs</span>
-        <div class="team-box">${t2n}</div>
+        <div class="team-box">${t1n}</div><span style="color:var(--text-secondary);font-size:13px;flex-shrink:0">vs</span><div class="team-box">${t2n}</div>
       </div>
       <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">Who won?</div>
       <div style="display:flex;gap:8px">
         <button class="btn btn-primary" style="flex:1;justify-content:center" onclick="addDG(1)">${t1n.split('+')[0].trim()}… won</button>
         <button class="btn btn-primary" style="flex:1;justify-content:center" onclick="addDG(2)">${t2n.split('+')[0].trim()}… won</button>
-      </div>
-    </div>`;
-  } else if(S.players.length<3){
-    nextHtml=`<div style="margin-top:1rem;padding:1rem;background:var(--bg-secondary);border-radius:var(--radius-md);font-size:13px;color:var(--text-secondary);text-align:center">Add at least 3 players in the Players tab first</div>`;
+      </div></div>`;
   } else {
-    nextHtml=`<div style="margin-top:1rem;padding:1rem;background:var(--bg-secondary);border-radius:var(--radius-md);font-size:13px;color:var(--text-secondary);text-align:center">Select exactly 3 players to generate pairings</div>`;
+    nextHtml=`<div style="margin-top:1rem;padding:1rem;background:var(--bg-secondary);border-radius:var(--radius-md);font-size:13px;color:var(--text-secondary);text-align:center">${S.players.length<3?'Add at least 3 players in the Players tab first':'Select exactly 3 players to generate pairings'}</div>`;
   }
-
-  const gamesHtml=(d.games||[]).length?`
-    <div style="margin-top:1rem">
-      <div class="section-title">Games logged</div>
-      ${(d.games||[]).map((g,i)=>{
-        const t1=g.team1.map(id=>playerName(id)).join(' + ');
-        const t2=g.team2.map(id=>playerName(id)).join(' + ');
-        const winner=g.winner===1?t1:t2;
-        return `<div style="display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:0.5px solid var(--border-light);font-size:13px">
-          <span style="color:var(--text-secondary);width:20px">${i+1}</span>
-          <span style="flex:1;color:var(--text-primary)">🏆 ${winner}</span>
-          <button onclick="S.logData.games.splice(${i},1);renderLogDoubles()" style="background:none;border:none;cursor:pointer;color:var(--text-tertiary);font-size:16px" aria-label="Remove"><i class="ti ti-x"></i></button>
-        </div>`;
-      }).join('')}
-    </div>`:'';
-
-  app.innerHTML=`
+  const gamesHtml=(d.games||[]).length?`<div style="margin-top:1rem"><div class="section-title">Games logged</div>
+    ${(d.games||[]).map((g,i)=>{const winner=(g.winner===1?g.team1:g.team2).map(id=>playerName(id)).join(' + ');
+      return `<div style="display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:0.5px solid var(--border-light);font-size:13px">
+        <span style="color:var(--text-secondary);width:20px">${i+1}</span><span style="flex:1;color:var(--text-primary)">🏆 ${winner}</span>
+        <button onclick="S.logData.games.splice(${i},1);renderLogDoubles()" style="background:none;border:none;cursor:pointer;color:var(--text-tertiary);font-size:16px"><i class="ti ti-x"></i></button>
+      </div>`;}).join('')}</div>`:'';
+  document.getElementById('app').innerHTML=`
   <div class="header-row">
     <button class="btn btn-sm" onclick="S.view='home';render()"><i class="ti ti-arrow-left"></i> Back</button>
     <div class="page-title">Log mixed doubles</div>
   </div>
   <div class="card">
     <div class="form-group"><label>Date</label><input type="date" value="${d.date}" oninput="S.logData.date=this.value" style="max-width:180px"></div>
-    <div class="form-group">
-      <label>Select 3 other players</label>
-      <div style="margin-top:6px">${chips||'<span style="font-size:13px;color:var(--text-secondary)">Add players first in the Players tab</span>'}</div>
-    </div>
-    ${gamesHtml}
-    ${nextHtml}
+    <div class="form-group"><label>Select 3 other players</label>
+      <div style="margin-top:6px">${chips||'<span style="font-size:13px;color:var(--text-secondary)">Add players in the Players tab first</span>'}</div>
+    </div>${gamesHtml}${nextHtml}
   </div>
-  ${(d.games||[]).length?`
-  <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">
+  ${(d.games||[]).length?`<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">
     <button class="btn" onclick="S.view='home';render()">Cancel</button>
     <button class="btn btn-primary" onclick="saveDoubles()">Save session</button>
-  </div>`:''}`;
-}
-
-function toggleDP(id){
-  const sel=S.logData.selPlayers||[];
-  const i=sel.indexOf(id);
-  if(i>=0)sel.splice(i,1);
-  else if(sel.length<3)sel.push(id);
-  S.logData.selPlayers=sel;
-  renderLogDoubles();
-}
-
-function addDG(winner){
-  if(!S.logData.games)S.logData.games=[];
-  S.logData.games.push({team1:[...S.logData._t1],team2:[...S.logData._t2],winner});
-  renderLogDoubles();
-}
-
+  </div>`:''}`;}
+function toggleDP(id){const sel=S.logData.selPlayers||[],i=sel.indexOf(id);if(i>=0)sel.splice(i,1);else if(sel.length<3)sel.push(id);S.logData.selPlayers=sel;renderLogDoubles();}
+function addDG(winner){if(!S.logData.games)S.logData.games=[];S.logData.games.push({team1:[...S.logData._t1],team2:[...S.logData._t2],winner});renderLogDoubles();}
 function saveDoubles(){
-  const d=S.logData;
-  if(!d.games||!d.games.length){alert('Log at least one game');return;}
+  const d=S.logData;if(!d.games||!d.games.length){alert('Log at least one game');return;}
   S.sessions.push({id:'d'+Date.now(),type:'doubles',date:d.date,games:d.games});
-  saveSessions();S.view='home';S.tab='history';render();
-}
-
+  saveSessions();S.view='home';S.tab='history';render();}
 function renderAddPlayer(){
-  const app=document.getElementById('app');
-  const sel=S._tmp.npColor||COLORS[2].name;
-  const name=S._tmp.npName||'';
-  app.innerHTML=`
+  const sel=S._tmp.npColor||COLORS[2].name,name=S._tmp.npName||'';
+  document.getElementById('app').innerHTML=`
   <div class="header-row">
     <button class="btn btn-sm" onclick="S.view='home';S.tab='players';S._tmp={};render()"><i class="ti ti-arrow-left"></i> Back</button>
     <div class="page-title">Add player</div>
   </div>
   <div class="card">
-    <div class="form-group">
-      <label>Name</label>
-      <input type="text" id="np-name" placeholder="Player name" value="${name}" oninput="S._tmp.npName=this.value;renderAddPlayer()">
-    </div>
-    <div class="form-group">
-      <label>Colour</label>
+    <div class="form-group"><label>Name</label><input type="text" id="np-name" placeholder="Player name" value="${name}" oninput="S._tmp.npName=this.value;renderAddPlayer()"></div>
+    <div class="form-group"><label>Colour</label>
       <div class="color-pick">${COLORS.map(c=>`<div class="color-dot" style="background:${c.bg};border-color:${sel===c.name?c.fg:'transparent'}" onclick="S._tmp.npColor='${c.name}';renderAddPlayer()"></div>`).join('')}</div>
     </div>
     ${name?`<div style="display:flex;align-items:center;gap:10px;margin:1rem 0 .5rem">${avatarHtml(name,sel)}<span style="font-size:14px;font-weight:500;color:var(--text-primary)">${name}</span></div>`:''}
-    <div class="form-group">
-      <label style="display:flex;align-items:center;gap:0;cursor:pointer">
-        <input type="checkbox" id="np-regular" checked> Regular player (show on leaderboard)
-      </label>
-    </div>
+    <div class="form-group"><label style="display:flex;align-items:center;cursor:pointer"><input type="checkbox" id="np-regular" checked> Regular player (show on leaderboard)</label></div>
     <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:8px">
       <button class="btn btn-sm" onclick="S.view='home';S.tab='players';S._tmp={};render()">Cancel</button>
       <button class="btn btn-primary btn-sm" onclick="saveNewPlayer()">Add player</button>
     </div>
-  </div>`;
-}
-
+  </div>`;}
 function saveNewPlayer(){
   const name=(S._tmp.npName||document.getElementById('np-name').value).trim();
   if(!name){alert('Please enter a name');return;}
   const regular=document.getElementById('np-regular').checked;
   S.players.push({id:'p'+Date.now(),name,color:S._tmp.npColor||COLORS[2].name,regular});
-  savePlayers();S._tmp={};S.view='home';S.tab='players';render();
-}
-
+  savePlayers();S._tmp={};S.view='home';S.tab='players';render();}
 function deletePlayer(id){if(confirm('Remove this player?')){S.players=S.players.filter(p=>p.id!==id);savePlayers();render();}}
 function deleteSession(id){if(confirm('Delete this session?')){S.sessions=S.sessions.filter(s=>s.id!==id);saveSessions();render();}}
-
 load();
 </script>
 </body>
